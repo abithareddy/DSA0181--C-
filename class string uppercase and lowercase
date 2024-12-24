@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+#include <cctype> // for std::toupper and std::tolower
+
+class StringConverter {
+private:
+    std::string str; 
+
+public:
+    // Constructor to initialize the string
+    StringConverter(const std::string& input) : str(input) {}
+
+    // Method to convert the string to upper case
+    std::string toUpperCase() const {
+        std::string upperStr = str; 
+        for (char& c : upperStr) {
+            c = std::toupper(c); 
+        }
+        return upperStr;
+    }
+
+    // Method to convert the string to lower case
+    std::string toLowerCase() const {
+        std::string lowerStr = str; 
+        for (char& c : lowerStr) {
+            c = std::tolower(c); 
+        }
+        return lowerStr;
+    }
+};
+
+int main() {
+    std::string input;
+
+   
+    std::cout << "Enter a string: ";
+    std::getline(std::cin, input);
+
+    StringConverter converter(input);
+
+    
+    std::string upperCase = converter.toUpperCase();
+    std::cout << "Upper case: " << upperCase << std::endl;
+
+    
+    std::string lowerCase = converter.toLowerCase();
+    std::cout << "Lower case: " << lowerCase << std::endl;
+
+    return 0;
+}
